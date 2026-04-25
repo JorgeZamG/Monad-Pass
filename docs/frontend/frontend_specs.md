@@ -678,3 +678,8 @@ vercel --prod
 # Verificar que el contrato responde
 cast call $FACTORY_ADDRESS "getEventCount()" --rpc-url https://testnet-rpc.monad.xyz
 ```
+
+
+## Nota de avance
+
+Se creó un documento inicial de diseño de página en `docs/frontend/page_design_start.md` para arrancar la maquetación visual del Home y componentes base.
