@@ -11,7 +11,9 @@ export function EventCard({ title, location, date, priceMon, sold, total, soldOu
         {priceMon} MON · {sold}/{total}
       </p>
       <span className={`badge ${soldOut ? "badge-muted" : ""}`}>{soldOut ? "Agotado" : "Activo"}</span>
-      <button className={`btn ${soldOut ? "btn-outline" : "btn-primary"}`}>Ver evento</button>
+      <button className={`btn ${soldOut ? "btn-outline" : "btn-primary"}`}>
+        {soldOut ? "Ver evento" : `Comprar por ${priceMon} MON`}
+      </button>
     </article>
   );
 }

@@ -2,40 +2,7 @@ import Link from "next/link";
 
 import { EventCard } from "@/components/ui/EventCard";
 import { ConnectWalletButton } from "@/components/ui/ConnectWalletButton";
-import type { EventSummary } from "@/types";
-
-const events: EventSummary[] = [
-  {
-    address: "0x0000000000000000000000000000000000001010",
-    title: "Monad Dev Summit",
-    location: "Miami",
-    date: "18 Jul 2026",
-    priceMon: "0.45",
-    sold: 128,
-    total: 300,
-    soldOut: false,
-  },
-  {
-    address: "0x0000000000000000000000000000000000002020",
-    title: "Web3 Product Night",
-    location: "CDMX",
-    date: "03 Ago 2026",
-    priceMon: "0.30",
-    sold: 300,
-    total: 300,
-    soldOut: true,
-  },
-  {
-    address: "0x0000000000000000000000000000000000003030",
-    title: "Monad Builders Camp",
-    location: "Madrid",
-    date: "22 Sep 2026",
-    priceMon: "0.25",
-    sold: 42,
-    total: 180,
-    soldOut: false,
-  },
-];
+import { EVENTS } from "@/lib/events";
 
 export default function HomePage() {
   return (
@@ -75,7 +42,7 @@ export default function HomePage() {
         </section>
 
         <section className="grid">
-          {events.map((event) => (
+          {EVENTS.map((event) => (
             <Link key={`${event.title}-${event.date}`} href={`/event/${event.address}`}>
               <EventCard {...event} />
             </Link>
