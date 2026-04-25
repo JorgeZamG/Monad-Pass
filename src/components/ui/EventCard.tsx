@@ -1,14 +1,6 @@
-type EventCardProps = {
-  title: string;
-  location: string;
-  date: string;
-  priceMon: string;
-  sold: number;
-  total: number;
-  soldOut?: boolean;
-};
+import type { EventSummary } from "@/types";
 
-export function EventCard({ title, location, date, priceMon, sold, total, soldOut = false }: EventCardProps) {
+export function EventCard({ title, location, date, priceMon, sold, total, soldOut = false }: EventSummary) {
   return (
     <article className="card panel">
       <div className="thumb" aria-hidden />

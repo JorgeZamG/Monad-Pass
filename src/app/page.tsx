@@ -1,7 +1,12 @@
-import { EventCard } from "@/components/ui/EventCard";
+import Link from "next/link";
 
-const events = [
+import { EventCard } from "@/components/ui/EventCard";
+import { ConnectWalletButton } from "@/components/ui/ConnectWalletButton";
+import type { EventSummary } from "@/types";
+
+const events: EventSummary[] = [
   {
+    address: "0x0000000000000000000000000000000000001010",
     title: "Monad Dev Summit",
     location: "Miami",
     date: "18 Jul 2026",
@@ -11,6 +16,7 @@ const events = [
     soldOut: false,
   },
   {
+    address: "0x0000000000000000000000000000000000002020",
     title: "Web3 Product Night",
     location: "CDMX",
     date: "03 Ago 2026",
@@ -20,6 +26,7 @@ const events = [
     soldOut: true,
   },
   {
+    address: "0x0000000000000000000000000000000000003030",
     title: "Monad Builders Camp",
     location: "Madrid",
     date: "22 Sep 2026",
@@ -36,11 +43,11 @@ export default function HomePage() {
       <header className="topbar container">
         <div className="logo">🎟️ Monad Pass</div>
         <nav>
-          <a href="#">Eventos</a>
-          <a href="#">Mis tickets</a>
-          <a href="#">Crear evento</a>
+          <Link href="#">Eventos</Link>
+          <Link href="/my-tickets">Mis tickets</Link>
+          <Link href="/create">Crear evento</Link>
         </nav>
-        <button className="btn btn-outline">Conectar wallet</button>
+        <ConnectWalletButton />
       </header>
 
       <main className="container">
@@ -52,7 +59,9 @@ export default function HomePage() {
           </p>
           <div className="actions">
             <button className="btn btn-primary">Explorar eventos</button>
-            <button className="btn btn-ghost">Crear evento</button>
+            <Link className="btn btn-ghost" href="/create">
+              Crear evento
+            </Link>
           </div>
         </section>
 
@@ -67,7 +76,9 @@ export default function HomePage() {
 
         <section className="grid">
           {events.map((event) => (
-            <EventCard key={`${event.title}-${event.date}`} {...event} />
+            <Link key={`${event.title}-${event.date}`} href={`/event/${event.address}`}>
+              <EventCard {...event} />
+            </Link>
           ))}
         </section>
       </main>
