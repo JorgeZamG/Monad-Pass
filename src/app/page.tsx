@@ -6,6 +6,16 @@ import type { EventSummary } from "@/types";
 
 const events: EventSummary[] = [
   {
+    address: "0x1111111111111111111111111111111111111111",
+    title: "Monad Blitz",
+    location: "Online",
+    date: "12 Jun 2026",
+    priceMon: "1.00",
+    sold: 12,
+    total: 150,
+    soldOut: false,
+  },
+  {
     address: "0x0000000000000000000000000000000000001010",
     title: "Monad Dev Summit",
     location: "Miami",
