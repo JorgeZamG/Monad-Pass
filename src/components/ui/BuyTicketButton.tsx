@@ -1,18 +1,15 @@
 "use client";
 
-import { useMemo } from "react";
-import { parseEther, isAddress } from "viem";
+import { parseEther } from "viem";
 import { useAccount, useSendTransaction, useWaitForTransactionReceipt } from "wagmi";
 
 type BuyTicketButtonProps = {
-  eventAddress: string;
+  eventAddress: `0x${string}`;
   amountMon?: string;
 };
 
 export function BuyTicketButton({ eventAddress, amountMon = "1" }: BuyTicketButtonProps) {
   const { isConnected } = useAccount();
-
-  const canBuy = useMemo(() => isAddress(eventAddress), [eventAddress]);
 
   const { data: hash, isPending, sendTransaction, error } = useSendTransaction();
 
@@ -21,15 +18,13 @@ export function BuyTicketButton({ eventAddress, amountMon = "1" }: BuyTicketButt
   });
 
   const handleBuy = () => {
-    if (!canBuy) return;
-
     sendTransaction({
-      to: eventAddress as `0x${string}`,
+      to: eventAddress,
       value: parseEther(amountMon),
     });
   };
 
-  const disabled = !isConnected || !canBuy || isPending || isConfirming;
+  const disabled = !isConnected || isPending || isConfirming;
 
   return (
     <div style={{ display: "grid", gap: 10, alignItems: "start" }}>
@@ -38,7 +33,6 @@ export function BuyTicketButton({ eventAddress, amountMon = "1" }: BuyTicketButt
       </button>
 
       {!isConnected && <p className="meta">Conecta tu wallet para comprar.</p>}
-      {!canBuy && <p className="meta">Dirección de evento inválida.</p>}
       {error && <p className="meta">Error: {error.message}</p>}
       {isSuccess && <p className="meta">¡Compra confirmada en cadena!</p>}
     </div>
