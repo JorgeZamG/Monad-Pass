@@ -168,3 +168,5 @@ Secciones visuales:
 - [x] Wireframe textual de Home.
 - [ ] Mock de alta fidelidad (Figma).
 - [ ] Implementación del Home en Next.js.
+
+- Prototipo visual inicial disponible en `docs/frontend/prototypes/home.html` y `docs/frontend/prototypes/home.css`.
