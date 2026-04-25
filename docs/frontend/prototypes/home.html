@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web3 Ticketing — Home Prototype</title>
+    <link rel="stylesheet" href="./home.css" />
+  </head>
+  <body>
+    <header class="topbar container">
+      <div class="logo">🎟️ Monad Pass</div>
+      <nav>
+        <a href="#">Eventos</a>
+        <a href="#">Mis tickets</a>
+        <a href="#">Crear evento</a>
+      </nav>
+      <button class="btn btn-outline">Conectar wallet</button>
+    </header>
+
+    <main class="container">
+      <section class="hero panel">
+        <p class="kicker">Monad Testnet</p>
+        <h1>Descubre eventos tokenizados y compra tickets NFT</h1>
+        <p class="subtitle">
+          Flujo simple para asistentes y organizadores: compra, ticket QR y check-in
+          on-chain.
+        </p>
+        <div class="actions">
+          <button class="btn btn-primary">Explorar eventos</button>
+          <button class="btn btn-ghost">Crear evento</button>
+        </div>
+      </section>
+
+      <section class="filters panel">
+        <input type="search" placeholder="Buscar evento por nombre..." />
+        <div class="chips">
+          <button class="chip chip-active">Todos</button>
+          <button class="chip">Próximos</button>
+          <button class="chip">Agotados</button>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card panel">
+          <div class="thumb"></div>
+          <h3>Monad Dev Summit</h3>
+          <p>Miami · 18 Jul 2026</p>
+          <p class="meta">0.45 MON · 128/300</p>
+          <span class="badge">Activo</span>
+          <button class="btn btn-primary">Ver evento</button>
+        </article>
+
+        <article class="card panel">
+          <div class="thumb"></div>
+          <h3>Web3 Product Night</h3>
+          <p>CDMX · 03 Ago 2026</p>
+          <p class="meta">0.30 MON · 300/300</p>
+          <span class="badge badge-muted">Agotado</span>
+          <button class="btn btn-outline">Ver evento</button>
+        </article>
+
+        <article class="card panel">
+          <div class="thumb"></div>
+          <h3>Monad Builders Camp</h3>
+          <p>Madrid · 22 Sep 2026</p>
+          <p class="meta">0.25 MON · 42/180</p>
+          <span class="badge">Activo</span>
+          <button class="btn btn-primary">Ver evento</button>
+        </article>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <span>Docs</span>
+      <span>Factory</span>
+      <span>Monad Explorer</span>
+    </footer>
+  </body>
+</html>
